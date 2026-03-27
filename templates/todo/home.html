@@ -1,0 +1,43 @@
+{% extends "todo/base.html" %}
+
+{% block body %}
+
+<h1 class="Display-1" style="text-align: center;">Add Tasks</h1>
+<div style="padding: 18px;">
+    <form method="post">
+
+        {% csrf_token %}
+        
+        <div style="display: inline-block; width: 200px; padding-top: 8px;">
+            {{ form }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add</button>
+
+
+    </form>
+</div>
+
+
+<hr>
+
+<div style="padding: 36px; font-size: 42px;">
+    
+    <ul>
+        {% for task in tasks %}
+        
+        <li>{{ task }}</li>
+        {% empty %}
+            <li>No Tasks yet.</li>
+
+         {% endfor %}
+        
+    </ul>
+   
+</div>
+
+
+
+
+
+{% endblock %}
